@@ -22,7 +22,7 @@ router.post("/login", async (req, res) => {
     //     res.status(400).send({errorMessage: '이메일 또는 비밀번호를 확인해주세요'});
     //     return;
     // } else {
-        const token = jwt.sign({ email : user.email, nickName : user.nickName, userprofile : user.userprofile }, mykey);
+        const token = jwt.sign({ email : user.email, nickName : user.nickName, userprofile : user.userProfile }, mykey);
         res.json({token})
     // }
 });

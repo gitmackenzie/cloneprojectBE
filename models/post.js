@@ -50,6 +50,9 @@ const postsSchema = mongoose.Schema({
         type: Array,
         required: true,
     },
+    userProfile: {
+        type: String,
+    },
 
 });
 
