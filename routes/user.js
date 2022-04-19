@@ -60,4 +60,19 @@ if (!regexr2.test(email)) {
         message: '회원가입 성공'
     });
 });
+
+router.get('/users/me', authMiddleware, async (req, res) => {
+    const { user } = res.locals;
+    if (!user) {
+        res.status(401).send({
+            errorMessage: '닉네임 또는 패스워드가 잘못됐습니다.',
+        });
+        return;
+    }
+
+    res.send({
+        user,
+    });
+});
+
 module.exports = router;
