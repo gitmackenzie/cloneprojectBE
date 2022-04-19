@@ -6,12 +6,21 @@ require('dotenv').config();
 const authMiddleware = require('../middlewares/auth-middleware');
 const upload = require('../S3/s3');
 const AWS = require('aws-sdk');
-AWS.config.loadFromPath(__dirname + '/s3config.json');
 const s3 = new AWS.S3();                                                                                                               
 
 router.get('/', (req, res) => {
     res.send('this is root page');
 });
+
+//리스트 페이지 불러오기
+router.get('/listPage', async (req, res) => {
+  const posts = await Posts.find();
+  const posts1 = posts.reverse();
+  res.json({
+      posts: posts1,
+  });
+});
+
 
 //호스트 게시글 작성
 router.post('/hostAdd', authMiddleware, upload.array('postImg', 5), // 이미지 여러개 받기 최대5장
