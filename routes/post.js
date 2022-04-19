@@ -17,7 +17,7 @@ router.get('/listPage', async (req, res) => {
   const posts = await Posts.find();
   const posts1 = posts.reverse();
   res.json({
-      posts: posts1,
+      post: posts1,
   });
 });
 
