@@ -32,25 +32,25 @@ router.post('/hostAdd', authMiddleware, upload.array('postImg', 5), // 이미지
     const email = res.locals.user.email;
     const nickName = res.locals.user.nickName;
     const userProfile = res.locals.user.userProfile;
-    const { postTitle, postDesc, postCharge, address, room, wifi, laundry, parkinglot, coordinates } = req.body;    
+    const { postTitle, postDesc, postCharge, address, room, wifi, laundry, parkinglot, latitude, longitude } = req.body;    
     const postImg = [];
     for (let i = 0; i < req.files.length; i++) {
-      const [ postImg ] = await Posts.create({ })
       postImg.push(req.files[i]?.location);
-      postImg.push(req.files[i]?.key);
     }
     console.log(postImg)
     try {
       await Posts.create({
+        email,
+        userProfile,
         date,
         nickName,
         postTitle, 
         postDesc, 
         postCharge, 
-        address, 
-        // category,
+        address,
         room, wifi, laundry, parkinglot,
-        coordinates,
+        latitude: Number(latitude),
+        longitude: Number(longitude),
         postImg,
       });
       res.status(200).send({
@@ -112,7 +112,10 @@ router.post( '/hostUpdate/:postId', authMiddleware, upload.array('postImg', 5), 
     try {
         await Posts.updateOne(
             { _id: o_id },
-            { $set: { 
+            { $set: {
+              email,
+              nickName,
+              userProfile,
               date, 
               postTitle, 
               postDesc, 
