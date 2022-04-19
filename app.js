@@ -24,7 +24,7 @@ app.use('/profile', express.static('uploads'));
 
 //form 형식으로 데이터를 받아오고 싶을 때(false->true)
 app.use('/api', express.urlencoded({ extended: false }), postsRouter);
-app.use('/api', express.urlencoded({ extended: false }), usersRouter);
+app.use('/user', express.urlencoded({ extended: false }), usersRouter);
 app.use('/api', express.urlencoded({ extended: false }), commentsRouter);
 
 app.listen(port, () => {
