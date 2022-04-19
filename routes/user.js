@@ -29,9 +29,9 @@ router.post("/login", async (req, res) => {
 // 회원가입
 router.post("/signUp", async (req, res) => {
     const { email, password, nickName, userProfile} = req.body;
-const regexr = /^[a-zA-Z0-9_\-.]{3,10}$/;
-const regexr1 = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*#?[#?!@$%^&*-].{8,})$/;
-const regexr2 = /^([a-z0-9_\.-])@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+const regexr = /[A-Za-z0-9]{4,20}$/;
+const regexr1 = /[A-Za-z0-9]{4,30}$/;
+const regexr2 = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
 if (!regexr2.test(email)) {
     return res.status(403).send('이메일 형식이 아닙니다.');
 } else if (!regexr.test(nickName)) {
