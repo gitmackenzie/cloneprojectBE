@@ -16,6 +16,9 @@ const commentsSchema = mongoose.Schema({
         type: String,
         required: true,
     },
+    userProfile: {
+        type: String,
+    },
 });
 
 commentsSchema.virtual('commentId').get(function () {
