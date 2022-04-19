@@ -6,6 +6,8 @@ const mongoose = require('mongoose');
 //token key 보안처리
 const fs = require("fs");
 const mykey = fs.readFileSync(__dirname + "/../middlewares/key.txt").toString();
+const authMiddleware = require('../middlewares/auth-middleware');
+
 // 로그인
 router.post("/login", async (req, res) => {
     const {email, password} = req.body;
