@@ -27,7 +27,7 @@ router.post("/login", async (req, res) => {
     }
 });
 // 회원가입
-router.post("/user", async (req, res) => {
+router.post("/signUp", async (req, res) => {
     const { email, password, nickName, userProfile} = req.body;
 const regexr = /^[a-zA-Z0-9_\-.]{3,10}$/;
 const regexr1 = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*#?[#?!@$%^&*-].{8,})$/;
