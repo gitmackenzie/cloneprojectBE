@@ -24,28 +24,26 @@ const postsSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    // category: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'Category',
-    //     required: true
-    // },
     room: {
-        type: Number,
+        type: String,
         required: true,
     },
     wifi: {
-        type: Boolean,
+        type: String,
         required: true,
     },
     laundry: {
-        type: Boolean,
+        type: String,
         required: true,
     },
     parkinglot: {
-        type: Boolean,
+        type: String,
         required: true,
     },
-    coordinates: {
+    latitude: {
+        type: Number,
+    },
+    longitude: {
         type: Number,
     },
     postImg: {
