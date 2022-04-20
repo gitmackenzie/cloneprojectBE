@@ -5,6 +5,11 @@ const commentsSchema = mongoose.Schema({
         type: String,
         required: true,
     },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+    },    
     nickName: {
         type: String,
     },
