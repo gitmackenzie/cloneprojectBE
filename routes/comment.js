@@ -58,6 +58,7 @@ router.post('/commentPost/:postId', authMiddleware, async (req, res) => {
         });
         res.status(201).send({
             message: '후기 작성완료',
+            comment,
         });
     } catch (err) {
         res.status(401).send({
