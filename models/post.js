@@ -4,6 +4,11 @@ const postsSchema = mongoose.Schema({
     date: {
         type: String,
     },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+    },
     nickName: {
         type: String,
         required: true,
