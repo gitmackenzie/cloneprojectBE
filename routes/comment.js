@@ -35,6 +35,7 @@ router.post('/commentPost/:postId', authMiddleware, async (req, res) => {
     const { user } = res.locals;
     let nickName = user.nickName;
     let userProfile = user.userProfile;
+    let email = user.email;
 
     const today = new Date();
     const date = today.toLocaleString();
@@ -48,6 +49,7 @@ router.post('/commentPost/:postId', authMiddleware, async (req, res) => {
 
     try {
         const comment = await Comments.create({
+            email,
             userProfile,
             nickName,
             postId,
