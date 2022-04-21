@@ -23,8 +23,6 @@ const UserSchema = new mongoose.Schema({
 });
 
 // 솔트와 해시 만들기
-
-
 UserSchema.pre('save', function(next){
     var user = this;
 

@@ -54,7 +54,7 @@ if (!regexr2.test(email)) {
     };
     // userProfile 없는 경우
     if (!userProfile) {
-        userProfile = "https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg"
+        userProfile = "https://t3.ftcdn.net/https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.marthastewart.com%2F1528224%2Fnew-kitten-care-checklist&psig=AOvVaw37_3BhAFEZKHsxOxJSzniT&ust=1650638690656000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCPDz8beypfcCFQAAAAAdAAAAABAD/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg"
     }
     const user = new User({email, nickName, password, userProfile});
     await user.save();
